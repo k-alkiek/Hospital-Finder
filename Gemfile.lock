@@ -209,12 +209,8 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
-<<<<<<< HEAD
-  devise (~> 4.2)
-=======
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
->>>>>>> 7ddfad1f4c1c4a5bea8123cae770a8e247092741
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
