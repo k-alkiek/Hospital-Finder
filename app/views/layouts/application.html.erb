@@ -54,6 +54,101 @@
     
     
     		<div class="container">
+    		  
+    		  
+    		  
+    		
+          
+          <!-- other Modal working -->
+          <div id="loginmodal2" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+          
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                                          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <div class="field">
+                          <%= f.label :email %><br />
+                          <%= f.email_field :email, autofocus: true %>
+                        </div>
+                      
+                        <div class="field">
+                          <%= f.label :password %><br />
+                          <%= f.password_field :password, autocomplete: "off" %>
+                        </div>
+                      
+                        <% if devise_mapping.rememberable? -%>
+                          <div class="field">
+                            <%= f.check_box :remember_me %>
+                            <%= f.label :remember_me %>
+                          </div>
+                        <% end -%>
+                      
+                        <div class="actions">
+                          <%= f.submit "Log in" %>
+                        </div>
+                      <% end %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+          
+          <!--other signup modal-->
+          
+            <div id="signupmodal2" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+          
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= devise_error_messages! %>
+                  
+                    <div class="field">
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, autofocus: true %>
+                    </div>
+                  
+                    <div class="field">
+                      <%= f.label :password %>
+                      <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %><br />
+                      <%= f.password_field :password, autocomplete: "off" %>
+                    </div>
+                  
+                    <div class="field">
+                      <%= f.label :password_confirmation %><br />
+                      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                    </div>
+                  
+                    <div class="actions">
+                      <%= f.submit "Sign up" %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+
+    		  
+    		  
 			<div class="col-sm-8 col-sm-offset-2 mycontainer">
 				<div class="col-sm-12 mysection first">
 					<div class="col-sm-6">
@@ -70,127 +165,177 @@
 								  <% if user_signed_in? %>
 								    <%= link_to 'Edit', edit_user_registration_path, :class => 'btn btn-success', :id => 'loginoutside' %>
 								  <% else %>
-									<a class="btn btn-success" id="loginoutside" data-toggle="modal" href='#loginmod'>Login</a>
+									<a class="btn btn-success" id="loginoutside" data-toggle="modal" href='#loginmodal2'>Login</a>
 									 <% end %>
 									
-									<div class="modal fade" id="loginmod">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-													<h4 class="modal-title">Login.</h4>
-												</div>
-												<div class="modal-body gocenter">
-													<div class="login-form-1">
-														<form id="login-form" class="text-left">
-															<div class="login-form-main-message"></div> <!--for what purpose -->
-															
-															
-															
-															
-															
-															
-															<div class="main-login-form">
-																<div class="login-group">
+									<!--<div class="modal fade" id="loginmod">-->
+									<!--	<div class="modal-dialog">-->
+									<!--		<div class="modal-content">-->
+									<!--			<div class="modal-header">-->
+									<!--				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+									<!--				<h4 class="modal-title">Login.</h4>-->
+									<!--			</div>-->
+									<!--			<div class="modal-body gocenter">-->
+									<!--				<div class="login-form-1">-->
+									<!--					<form id="login-form" class="text-left">-->
+									<!--						<div class="login-form-main-message"></div> <!--for what purpose -->
+									<!--						<div class="main-login-form">-->
+									<!--							<div class="login-group">-->
+																  
+																  <!--<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
+                  <!--                <div class="field">-->
+                  <!--                    <%= f.label :email , :for =>"lg_username" , :class =>"sr-only"%><br />-->
+                  <!--                    <%= f.email_field :email, autofocus: true, :type =>"text", :class => "form-control", :id =>"lg_username", :name =>"lg_username", :placeholder =>"E-mail" %>-->
+                  <!--                </div>-->
+                                
+                  <!--                <div class="field">-->
+                  <!--                  <%= f.label :password ,:for =>"lg_password" , :class =>"sr-only"%>-->
+                  <!--                  <%= f.password_field :password, autocomplete: "off", type: "password" , class: "form-control", id: "lg_password" ,name:"lg_password" ,placeholder: "password" %>-->
+                  <!--                </div>-->
+                                
+                  <!--                <% if devise_mapping.rememberable? -%>-->
+                  <!--                  <div class="field">-->
+                  <!--                    <%= f.check_box :remember_me %>-->
+                  <!--                    <%= f.label :remember_me %>-->
+                  <!--                  </div>-->
+                  <!--                <% end -%>-->
+                                
+                  <!--                <div class="actions">-->
+                  <!--                  <%= f.submit "Log in" %>-->
+                                    
+                  <!--                </div>-->
+                  <!--              <% end %>-->
+                  
+                  <!--                <div>-->
+                  <!--      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
+                  <!--      <div class="field">-->
+                  <!--        <%= f.label :email %><br />-->
+                  <!--        <%= f.email_field :email, autofocus: true %>-->
+                  <!--      </div>-->
+                      
+                  <!--      <div class="field">-->
+                  <!--        <%= f.label :password %><br />-->
+                  <!--        <%= f.password_field :password, autocomplete: "off" %>-->
+                  <!--      </div>-->
+                      
+                  <!--      <% if devise_mapping.rememberable? -%>-->
+                  <!--        <div class="field">-->
+                  <!--          <%= f.check_box :remember_me %>-->
+                  <!--          <%= f.label :remember_me %>-->
+                  <!--        </div>-->
+                  <!--      <% end -%>-->
+                      
+                  <!--      <div class="actions">-->
+                  <!--        <%= f.submit "Log in" %>-->
+                  <!--      </div>-->
+                  <!--    <% end %>-->
+                      
+          
+              		  <!--</div>-->
 																  
 																  
-																	<div class="form-group">
-																		<label for="lg_username" class="sr-only">Username</label>
-																		<input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username">
-																	</div>
-																	<div class="form-group">
-																		<label for="lg_password" class="sr-only">Password</label>
-																		<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">
-																	</div>
-																	<div class="form-group login-group-checkbox">
-																		<input type="checkbox" id="lg_remember" name="lg_remember">
-																		<label for="lg_remember">remember</label>
-																	</div>
-																</div>
-																<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-															</div>
+																	<!--<div class="form-group">-->
+																		
+																	<!--	<input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username">-->
+																	<!--</div>-->
+																	<!--<div class="form-group">-->
+																	<!--	<label for="lg_password" class="sr-only">Password</label>-->
+																	<!--	<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">-->
+																	<!--</div>-->
+																	<!--<div class="form-group login-group-checkbox">-->
+																	<!--	<input type="checkbox" id="lg_remember" name="lg_remember">-->
+																	<!--	<label for="lg_remember">remember</label>-->
+																	<!--</div>-->
+																	
+																	
+									<!--							</div>-->
+																<!--<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>-->
+									<!--						</div>-->
 															
 															
 															
 															
-															<div class="etc-login-form">
-																<p>forgot your password? <a href="#" id="forgotpass">click here</a></p>
-																<p>new user? <a href="#" id="signupInside">create new account</a></p>
-															</div>
-														</form>
-													</div>
-													<button type="button" id="closeLogin" class="btn btn-default hidden" data-dismiss="modal">Close</button>
-												</div>
-											</div>
-										</div>
-									</div>
+									<!--						<div class="etc-login-form">-->
+									<!--							<p>forgot your password? <a href="#" id="forgotpass">click here</a></p>-->
+									<!--							<p>new user? <a href="#" id="signupInside">create new account</a></p>-->
+									<!--						</div>-->
+									<!--					</form>-->
+									<!--				</div>-->
+									<!--				<button type="button" id="closeLogin" class="btn btn-default hidden" data-dismiss="modal">Close</button>-->
+									<!--			</div>-->
+									<!--		</div>-->
+									<!--	</div>-->
+									<!--</div>-->
 									
 									<% if user_signed_in? %>
 									  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-primary', :id => 'registerbtn'  %>
 									<% else %>
-									  <a class="btn btn-primary" id="registerbtn" data-toggle="modal" href='#signupmod'>Signup</a>
+									  <a class="btn btn-primary" id="registerbtn" data-toggle="modal" href='#signupmodal2'>Signup</a>
 									<% end %>
 									
-									<div class="modal fade" id="signupmod">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-													<h4 class="modal-title">Register</h4>
-												</div>
-												<div class="modal-body gocenter">
-													<div class="login-form-1">
-														<form id="register-form" class="text-left">
-															<div class="login-form-main-message"></div>
-															<div class="main-login-form">
-																<div class="login-group">
-																	<div class="form-group">
-																		<label for="reg_username" class="sr-only">Email address</label>
-																		<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
-																	</div>
-																	<div class="form-group">
-																		<label for="reg_password" class="sr-only">Password</label>
-																		<input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
-																	</div>
-																	<div class="form-group">
-																		<label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-																		<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
-																	</div>
+									<!--<div class="modal fade" id="signupmod">-->
+									<!--	<div class="modal-dialog">-->
+									<!--		<div class="modal-content">-->
+									<!--			<div class="modal-header">-->
+									<!--				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+									<!--				<h4 class="modal-title">Register</h4>-->
+									<!--			</div>-->
+									<!--			<div class="modal-body gocenter">-->
+									<!--				<div class="login-form-1">-->
+									<!--					<form id="register-form" class="text-left">-->
+									<!--						<div class="login-form-main-message"></div>-->
+									<!--						<div class="main-login-form">-->
+									<!--							<div class="login-group">-->
+									<!--								<div class="form-group">-->
+									<!--									<label for="reg_username" class="sr-only">Email address</label>-->
+									<!--									<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">-->
+									<!--								</div>-->
+									<!--								<div class="form-group">-->
+									<!--									<label for="reg_password" class="sr-only">Password</label>-->
+									<!--									<input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">-->
+									<!--								</div>-->
+									<!--								<div class="form-group">-->
+									<!--									<label for="reg_password_confirm" class="sr-only">Password Confirm</label>-->
+									<!--									<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">-->
+									<!--								</div>-->
 																	
-																	<div class="form-group">
-																		<label for="reg_email" class="sr-only">Email</label>
-																		<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
-																	</div>
-																	<div class="form-group">
-																		<label for="reg_fullname" class="sr-only">Full Name</label>
-																		<input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-																	</div>
+									<!--								<div class="form-group">-->
+									<!--									<label for="reg_email" class="sr-only">Email</label>-->
+									<!--									<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">-->
+									<!--								</div>-->
+									<!--								<div class="form-group">-->
+									<!--									<label for="reg_fullname" class="sr-only">Full Name</label>-->
+									<!--									<input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">-->
+									<!--								</div>-->
 																	
-																	<div class="form-group login-group-checkbox">
-																		<input type="radio" class="" name="reg_gender" id="male" placeholder="username">
-																		<label for="male">male</label>
+									<!--								<div class="form-group login-group-checkbox">-->
+									<!--									<input type="radio" class="" name="reg_gender" id="male" placeholder="username">-->
+									<!--									<label for="male">male</label>-->
 																		
-																		<input type="radio" class="" name="reg_gender" id="female" placeholder="username">
-																		<label for="female">female</label>
-																	</div>
+									<!--									<input type="radio" class="" name="reg_gender" id="female" placeholder="username">-->
+									<!--									<label for="female">female</label>-->
+									<!--								</div>-->
 																	
-																	<div class="form-group login-group-checkbox">
-																		<input type="checkbox" class="" id="reg_agree" name="reg_agree">
-																		<label for="reg_agree">i agree with <a href="#">terms</a></label>
-																	</div>
-																</div>
-																<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-															</div>
-															<div class="etc-login-form">
-																<p>already have an account? <a href="#" id="loginInside">login here</a></p>
-															</div>
-														</form>
-														</div>
-														<button type="button" class="btn btn-default hidden" id="closeregister" data-dismiss="modal">Close</button>
-												</div>
-											</div>
-										</div>
-									</div>
+									<!--								<div class="form-group login-group-checkbox">-->
+									<!--									<input type="checkbox" class="" id="reg_agree" name="reg_agree">-->
+									<!--									<label for="reg_agree">i agree with <a href="#">terms</a></label>-->
+									<!--								</div>-->
+									<!--							</div>-->
+									<!--							<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>-->
+									<!--						</div>-->
+									<!--						<div class="etc-login-form">-->
+									<!--							<p>already have an account? <a href="#" id="loginInside">login here</a></p>-->
+									<!--						</div>-->
+									<!--					</form>-->
+									<!--					</div>-->
+									<!--					<button type="button" class="btn btn-default hidden" id="closeregister" data-dismiss="modal">Close</button>-->
+									<!--			</div>-->
+									<!--		</div>-->
+									<!--	</div>-->
+									<!--</div>-->
+									
+									
+									
 								</div>
 							</div>
 						</div>
