@@ -48,6 +48,19 @@
     <% end %>
     </p>
     
+    <!--Hospital login-->
+		    <p class="navbar-text pull-right">
+		    hospital login
+		<% if hospital_signed_in? %>
+		  Logged in as <strong><%= current_hospital.email %></strong>.
+		  <%= link_to 'Edit profile', edit_hospital_registration_path, :class => 'navbar-link' %> |
+		  <%= link_to "Logout", destroy_hospital_session_path, method: :delete, :class => 'navbar-link'  %>
+		<% else %>
+		  <%= link_to "Sign up", new_hospital_registration_path, :class => 'navbar-link'  %> |
+		  <%= link_to "Login", new_hospital_session_path, :class => 'navbar-link'  %>
+		<% end %>
+		</p>
+    
     
     
     
