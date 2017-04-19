@@ -1,5 +1,5 @@
 class User::RegistrationsController < Devise::RegistrationsController
-
+  before_action :reset_session
   private
 
   def sign_up_params

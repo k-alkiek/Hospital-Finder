@@ -6,8 +6,14 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   
-  devise_for :hospitals, :controllers => { registrations: 'hospital/registrations' }
-  devise_for :users, :controllers => { registrations: 'user/registrations' }
+  devise_for :hospitals, :controllers => {
+    registrations: 'hospital/registrations',
+    sessions: 'hospital/sessions'
+  }
+  devise_for :users, :controllers => {
+    registrations: 'user/registrations',
+    sessions: 'user/sessions'
+  }
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
