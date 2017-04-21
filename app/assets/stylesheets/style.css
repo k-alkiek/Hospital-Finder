@@ -1,9 +1,10 @@
 body {
 	padding-top: 15px;
-	background-image:  url("bg.jpg");
+	background-image:  url("testbg7.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 	background-attachment: fixed;
 }
-
 
 #logo {
 	display: flex;
@@ -12,29 +13,122 @@ body {
 }
 
 #logo img {
-	width: 300px;
-	height: 141px;
+	width: 200px;
+	height: 94px;
+  position: relative;
+  left:-30px;
 }
 
 .mysection {
 	padding: 20px;
 	background-color: #fff;
 }
+
+.top-buttons-group {
+  float: right;
+  clear: all;
+  position: relative;
+  top: 30px;
+}
+
+.top-buttons {
+  padding: 6px 20px;
+  margin-left: 2px;
+}
+
 .map, .person{
 	max-width: 100%;
 }
-.nolight{
-	outline-color:  #000;
-}
+
 .gocenter{
 	text-align: center;
 }
+
 .first{
 	border-radius: 4px 4px 0px 0px;
 }
 .footertxt{
 	padding: 8px;
 }
+
+.margin-btn-group{
+  float: right;
+  clear: all;
+  margin-left: 14px;
+  padding: 3px;
+}
+
+.top-buttons:focus{outline-color: transparent;}
+.margin-btn-group:focus{outline-color: #c9302c;}
+#searcher:focus{box-shadow: 0px 0px 3px #c9302c; border-color: #d43f3a; transition: box-shadow 1s;}
+
+
+.sidebar {
+  margin-left: -20px;
+}
+
+.sidebar-header {
+  color: white;
+  width: 160px;
+  background-color: #555;
+  border-radius: 3px;
+  border: dotted 1px #fff;
+}
+
+.myside-section {
+  padding: 5px;
+  height: auto;
+  border-radius: 3px;
+  margin-top: 4px;
+  background-color: #fff;
+}
+
+#top-rated {
+  height: 576px;
+  width: 170px;
+  padding-right: 10px;
+  padding-left: 2px;
+  overflow: scroll;
+  box-shadow:0px 2px 0px #c9302c;
+}
+
+/*-----------------------------------------------------------------*/
+.nav-tabs { border-bottom: 2px solid #DDD; }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
+    .nav-tabs > li > a { border: none; color: #666; }
+        .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #B70101 !important; background: transparent; }
+        .nav-tabs > li > a::after { content: ""; background: #B70101; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
+    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
+.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
+.tab-pane { padding: 15px 0; }
+.tab-content{padding:20px}
+
+.card {background: #FFF none repeat scroll 0% 0%; margin-bottom: 3px; }
+/*-----------------------------------------------------------------*/
+
+
+
+/*------------------------------ Hospital page----------------------------*/
+#hospitalImg {
+  width: 400px;
+  height: 200px;
+}
+
+.hospitalTitles {
+  font-family: 'Philosopher', sans-serif;
+  color: #d43f3a;
+  font-size: 150%;
+  line-height: 50px;
+}
+
+.hospitalTitlesInfo {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 150%;
+  line-height: 50px;
+}
+
+
+/*-----------------------------end of Hospital page-----------------------*/
 
 
 /*------------------------------------------------------------------
@@ -103,7 +197,7 @@ a:hover {
   color: #999999;
 }
 .login-form-1 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-bottom: 2px solid #efefef;
   padding-right: 20px;
   position: relative;
@@ -111,6 +205,12 @@ a:hover {
 .login-form-1 .form-group:last-child {
   border-bottom: 0;
 }
+
+.title {
+	font-family: 'Lobster', cursive;
+	font-size: 200%;
+}
+
 .login-group {
   background: #ffffff;
   color: #999999;
@@ -119,6 +219,7 @@ a:hover {
 }
 .login-group-checkbox {
   padding: 5px 0;
+  margin-bottom: 0px !important;
 }
 /*=== 5. Login Button ===*/
 .login-form-1 .login-button {	/* adjust outline border radious */
@@ -189,7 +290,7 @@ label.form-invalid:after {
   font-weight: bold;
   height: 0;
   padding: 0 20px 0 17px;
-  opacity: 0;
+  opacity: 1;
   transition: all ease-in-out 200ms;
 }
 .login-form-main-message.show {
