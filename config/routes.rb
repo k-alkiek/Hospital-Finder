@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'users/:id' => 'users#show'
-  
-  get 'hospitals/:id' => 'hospitals#show'
+
   
   get 'static_pages/home'
 
@@ -18,6 +16,9 @@ Rails.application.routes.draw do
     registrations: 'user/registrations',
     sessions: 'user/sessions'
   }
+
+  get 'users/:id' => 'users#show'
   
+  get 'hospitals/:id' => 'hospitals#show'  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
