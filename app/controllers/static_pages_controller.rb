@@ -2,10 +2,11 @@ class StaticPagesController < ApplicationController
   def home
     @hospitals = Hospital.all
     @hash = Gmaps4rails.build_markers(@hospitals) do |hospital, marker|
-    marker.lat hospital.latitude
-    marker.lng hospital.longitude
-
-end
+      hospital_path = view_context.link_to hospital.name, get 'hospitals/:id'
+      marker.lat hospital.latitude
+      marker.lng hospital.longitude
+      marker.infowindow "<b>#{hospital_path}</b>"
+    end
   end
 
   def about
