@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get 'users/:id' => 'users#show'
+  
+  get 'hospitals/:id' => 'hospitals#show'
   
   get 'static_pages/home'
 
