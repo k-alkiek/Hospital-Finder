@@ -1,5 +1,5 @@
 class User::SessionsController < Devise::SessionsController
-  before_action :reset_session
+  before_action :reset_session, only: [:new]
   # GET /resource/sign_in
   # def new
   #   super
