@@ -1,5 +1,5 @@
 class Hospital::SessionsController < Devise::SessionsController
-  before_action :reset_session
+  before_action :reset_session, only: [:new]
 
   # before_action :configure_sign_in_params, only: [:create]
 
