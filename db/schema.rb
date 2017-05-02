@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412091857) do
+ActiveRecord::Schema.define(version: 20170502172233) do
 
   create_table "hospitals", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20170412091857) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_hospitals_on_email", unique: true
     t.index ["reset_password_token"], name: "index_hospitals_on_reset_password_token", unique: true
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "rating"
+    t.text     "content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "hospital_id"
   end
 
   create_table "users", force: :cascade do |t|

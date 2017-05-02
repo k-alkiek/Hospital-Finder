@@ -49,3 +49,23 @@
 				</div>
 				<!-- -------------------------------------------------------End of MAP -------------------------------------------->
 			
+			
+			
+			<h2>Add a review:</h2>
+				<%= form_for([@hospital, @hospital.reviews.build]) do |f| %>
+				  <p>
+				    <%= f.label :title %><br>
+				    <%= f.text_field :title %>
+				  </p>
+				  <p>
+				    <%= f.label :rating %><br>
+				    <%= f.number_field :rating %>
+				  </p>
+				  <p>
+				    <%= f.label :content %><br>
+				    <%= f.text_area :content %>
+				  </p>
+				  <p>
+				    <%= f.submit %>
+				  </p>
+				<% end %>
