@@ -5,7 +5,7 @@ class HospitalsController < ApplicationController
     
     
     
-    @reviews = Hospital.where(:hospital_id => @hospital.id)
+    @reviews = Review.where(:hospital_id => @hospital.id)
     
     @hospitals = [@hospital]
     @hash = Gmaps4rails.build_markers(@hospitals) do |hospital, marker|

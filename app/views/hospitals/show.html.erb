@@ -48,8 +48,26 @@
 				</script>
 				</div>
 				<!-- -------------------------------------------------------End of MAP -------------------------------------------->
-			
-			
+					<table>
+					  <thead>
+					    <tr>
+					      <th>title</th>
+					      <th>rating</th>
+					      <th>content</th>
+					      <th colspan="3"></th>
+					    </tr>
+					  </thead>
+					
+					  <tbody>
+						<% @reviews.each do |review| %>
+				      <tr>
+				        <td><%= review.title %></td>
+				        <td><%= review.rating %></td>
+				        <td><%= review.content %></td>
+				      </tr>
+				    <% end %>
+		      </tbody>
+				</table>
 			
 			<h2>Add a review:</h2>
 				<%= form_for([@hospital, @hospital.reviews.build]) do |f| %>
