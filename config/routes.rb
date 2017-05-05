@@ -15,9 +15,9 @@ Rails.application.routes.draw do
     sessions: 'user/sessions'
   }
 
-  get 'users/:id' => 'users#show'
+  # get 'users/:id' => 'users#show'
   
-  get 'hospitals/:id' => 'hospitals#show' 
+  # get 'hospitals/:id' => 'hospitals#show' 
   
   resources :hospitals do
   resources :reviews
