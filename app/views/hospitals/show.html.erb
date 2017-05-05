@@ -87,3 +87,8 @@
 				    <%= f.submit %>
 				  </p>
 				<% end %>
+			
+				<% if @ratings.size != 0 %>			
+				<h3>Average</h3>
+					<p><%= @average %></p>
+					<% end %>
