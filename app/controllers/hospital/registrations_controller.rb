@@ -3,7 +3,7 @@ class Hospital::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:hospital).permit(:name, :email, :password, :password_confirmation, :phone_number, :address, :description)
+    params.require(:hospital).permit(:name, :email, :password, :password_confirmation, :phone_number, :address, :description, :image)
   end
 
   def account_update_params

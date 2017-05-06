@@ -1,7 +1,14 @@
 <h2>Sign up</h2>
 
+
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+
+  <div class="field">
+    Add Your <%= f.label :image %>:
+    <%= f.file_field :image %>
+  </div>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -44,5 +51,6 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+
 
 <%= render "hospitals/shared/links" %>
