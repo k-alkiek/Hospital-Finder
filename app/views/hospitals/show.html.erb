@@ -8,7 +8,8 @@
 				<hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2; margin-top: -20px;" />
 				<h1 class="title"><%= @hospital.name %></h1>
 					<div class="col-sm-4">
-					    <%= image_tag("person.png", :class => "img-thumbnail", :id => "hospitalImg") %>
+					    <%= image_tag(@hospital.image.url(:large)) %>
+					    <!--<%= image_tag("person.png", :class => "img-thumbnail", :id => "hospitalImg") %>-->
 					</div>
 					<div class="col-sm-8">
 						<div class="row">
@@ -233,4 +234,4 @@
 				<h3>Average</h3>
 					<p><%= @average %></p>
 					<% end %>
-            <%= image_tag(@hospital.image.url(:med)) %>
+            
