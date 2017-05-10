@@ -26,6 +26,16 @@ class HospitalsController < ApplicationController
     @hospital.departments << @department
     redirect_back fallback_location: @hospital
   end
+  
+  def delete_department
+    @hospital = Hospital.find(params[:id])
+    @department = Department.find(params[:department_id])
+    
+    @hospital.departments.delete(@department)
+    
+    redirect_back fallback_location: @hospital
+  end
+  
   # helper_method :resource_name, :resource, :devise_mapping
   
   # def resource_name

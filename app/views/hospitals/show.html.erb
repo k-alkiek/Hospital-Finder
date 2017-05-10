@@ -33,9 +33,10 @@
 				<!--------------------------------------------------------- end of Hospital Info ----------------------------------- -->
 				
 				<% @hospital.departments.each do |department| %>
-				        <p><%= department.name %></p>
+				        <p><%= department.name %>
+				        <%= link_to 'Destroy', :controller=>"hospitals", :action=>"delete_department", :method=>'delete', :department_id => department.id%>
 				    <% end %>
-				    
+				     
 				<%= form_tag({:controller=>"hospitals", :action=>"add_department"}, method: :get) do %>
 					<%= select_tag(:department_name, options_for_select(@departments_selection)) %>
 				  <%= submit_tag 'Add Department', name: nil %>

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'hospitals/:id' => 'hospitals#show' 
   
   resources :hospitals do
+    get 'delete_department', on: :member
     get 'add_department', on: :member
     resources :reviews
   end
