@@ -2,8 +2,15 @@ class HospitalsController < ApplicationController
   
   def show
     @hospital = Hospital.find(params[:id])
-    #@reviews = Review.where(:hospital_id => @hospital.id)
     
+    @departments_selection = [];
+    @departments = Department.all
+    
+    @departments.each do |department|
+      if !(@hospital.departments.include? department)
+        @departments_selection.push([department.name, department.name])
+      end
+    end
     
     @hospitals = [@hospital]
     @hash = Gmaps4rails.build_markers(@hospitals) do |hospital, marker|
