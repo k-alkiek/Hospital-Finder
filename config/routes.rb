@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get 'hospitals/:id' => 'hospitals#show' 
   
   resources :hospitals do
-  resources :reviews
-end
+    get 'add_department', on: :member
+    resources :reviews
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

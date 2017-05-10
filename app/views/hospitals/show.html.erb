@@ -31,6 +31,11 @@
 					<p style="word-wrap: break-word; text-align: center;"><%= @hospital.description %></p>
 				</div> 
 				<!--------------------------------------------------------- end of Hospital Info ----------------------------------- -->
+				
+				<%= form_tag({:controller=>"hospitals", :action=>"add_department"}, method: :get) do %>
+				  <%= text_field_tag :department_name, params[:department_name] %>
+				  <%= submit_tag 'Search by user id', name: nil %>
+				<% end %>
 
 				<!-- -------------------------------------------------------MAP ---------------------------------------------------->
 				<div class="col-ms-12">
