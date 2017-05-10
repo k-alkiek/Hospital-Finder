@@ -65,7 +65,7 @@
         "elementType": "geometry",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -74,7 +74,7 @@
         "elementType": "labels",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -83,7 +83,7 @@
         "elementType": "all",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -110,7 +110,7 @@
         "elementType": "geometry.stroke",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -119,7 +119,7 @@
         "elementType": "labels",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -186,52 +186,52 @@
 						  markers = handler.addMarkers(<%=raw @hash.to_json %>);
 						  handler.bounds.extendWith(markers);
 						  handler.fitMapToBounds();
+						  handler.getMap().setZoom(16);
 						});
 				</script>
 				</div>
 				<!-- -------------------------------------------------------End of MAP -------------------------------------------->
-					<table>
-					  <thead>
-					    <tr>
-					      <th>title</th>
-					      <th>rating</th>
-					      <th>content</th>
-					      <th colspan="3"></th>
-					    </tr>
-					  </thead>
-					
-					  <tbody>
-						<% @reviews.each do |review| %>
-				      <tr>
-				        <td><%= review.title %></td>
-				        <td><%= review.rating %></td>
-				        <td><%= review.content %></td>
-				      </tr>
-				    <% end %>
-		      </tbody>
-				</table>
-			
-			<h2>Add a review:</h2>
+            <br>
+            <br>
+            <br>
+            <hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2; margin-top: -20px;" />
+			<h3 class="title gocenter">Reviews</h3>
+				
+				<% if @ratings.size != 0 %>	
+				
+				<% @reviews.each do |review| %>
+				<ul class="list-inline">
+						<li class="existReview"><label class="form-control existReviewText" readonly><%= review.title %></label></li>
+						<li class="existReview"><label class="form-control existReviewText" readonly><%= review.rating %> / 5</label></li>
+						<br>
+						<li class="existReview"><p class="form-control existReviewText" readonly><%= review.content %></p></li>
+				        </ul>
+				        <% end %>
+			            <br>
+			            <h5 class="title goleft">Average</h5>
+					    <p><%= @average %></p>
+					<% end %>
+            <br>			
+            <br>
+            <hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2; margin-top: -20px;" />
+			<h6 class="title gocenter">Write Your Review</h6>
+                
 				<%= form_for([@hospital, @hospital.reviews.build]) do |f| %>
+				
 				  <p>
-				    <%= f.label :title %><br>
-				    <%= f.text_field :title %>
+				     <%= f.label :title, :style=>"font-family: 'Lobster', cursive; font-size: 120%; color: #d43f3a"%>
+				    <%= f.text_field :title, :class=>"form-control inputArea", :placeholder=>"Type review title" %>
 				  </p>
 				  <p>
-				    <%= f.label :rating %><br>
-				    <%= f.number_field :rating %>
+				    <%= f.label :rating, :style=>"font-family: 'Lobster', cursive; font-size: 120%; color: #d43f3a"%>
+				    <%= f.number_field :rating, :min=>"1" , :max=>"5", :required=>"true" %>
 				  </p>
 				  <p>
-				    <%= f.label :content %><br>
-				    <%= f.text_area :content %>
+				    <%= f.label :title, :style=>"font-family: 'Lobster', cursive; font-size: 120%; color: #d43f3a"%>
+				    <%= f.text_area :content, :class=>"form-control inputArea", :placeholder=>"Type your review"%>
 				  </p>
 				  <p>
 				    <%= f.submit %>
 				  </p>
 				<% end %>
-			
-				<% if @ratings.size != 0 %>			
-				<h3>Average</h3>
-					<p><%= @average %></p>
-					<% end %>
             

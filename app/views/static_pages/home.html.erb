@@ -52,7 +52,7 @@
         "elementType": "geometry",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -61,7 +61,7 @@
         "elementType": "labels",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -70,7 +70,7 @@
         "elementType": "all",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -97,7 +97,7 @@
         "elementType": "geometry.stroke",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -106,7 +106,7 @@
         "elementType": "labels",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -166,7 +166,7 @@
     }
 ];
 						
-						handler.buildMap({ provider: {zoom:      14, styles: mapStyle}, internal: {id: 'map'}}, function() {
+						handler.buildMap({ provider: {zoom:      15, styles: mapStyle}, internal: {id: 'map'}}, function() {
 						  markers = handler.addMarkers(<%=raw @hash.to_json %>);
 						  if(navigator.geolocation)
     							navigator.geolocation.getCurrentPosition(displayOnMap);
