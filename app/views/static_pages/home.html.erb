@@ -7,7 +7,7 @@
 					<div class="col-sm-8 col-sm-offset-2">
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-							<input type="search" id="searcher" placeholder="Search Locations.." name="" id="input" class="form-control nolight" value="" required="required" title="">
+							<input type="search" id="searcher" placeholder="Search Locations" name="" id="input" class="form-control nolight" value="" required="required" title="">
       						<span class="input-group-btn">
 								<button class="btn btn-danger">SEARCH</button>
 							</span>
@@ -19,12 +19,10 @@
 				<!--		<%= image_tag("map.png", :class => "map") %>-->
 				<!--	</div>-->
 				<!--</div>-->
-				<div calss='mapholder' style='width: 800px;'>
+				<div class='mapholder' style='width: 800px;'>
   				<div id="map" style='width: 920px; height: 400px;'></div>
 				</div>
-				
 
-				
 					<script type='text/javascript'>
 						handler = Gmaps.build('Google');
 						
@@ -175,7 +173,6 @@
   								var marker = handler.addMarker({
   								    lat: position.coords.latitude,
       								lng: position.coords.longitude
-      								
     								});
     								handler.map.centerOn(marker);
   								};
@@ -185,7 +182,7 @@
 				<div class="col-sm-12 mysection" style="margin-bottom: 12px;">
 					<div class="gocenter footertxt">
 						<strong>Who Are We??</strong> <br>
-						<em>We are Group of Four University Students in our second year, We study Computer Engineering in Alexandria University and we are the formal developer of this website. Honorly Here we are ;)<br><br></em>
+						<em>We are team of four Computer Engineering students in our second year in 2017.<br><br></em>
 					</div>
 					<div class="col-md-3">
 						<%= image_tag("person.png", :class => "person") %>

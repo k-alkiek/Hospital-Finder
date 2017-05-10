@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  	<%= favicon_link_tag(source='favicon.ico', options={}) %>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HospitalFinder</title>
     <%= csrf_meta_tags %>
@@ -165,8 +167,9 @@
 				<div class="col-sm-12 mysection first">
 					<div class="col-sm-6">
 						<div id="logo">
-						  
-							<%= image_tag("logo.png", :width => "250") %>
+							<%= link_to image_tag("logo.png" ,:width => "250"), root_path, :target => "_blank"%>
+							<%= link_to root_path do %>
+							<% end %>
 						</div>
 					</div>
 					<div class="col-sm-6">
