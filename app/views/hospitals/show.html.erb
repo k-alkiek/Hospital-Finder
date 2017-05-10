@@ -32,6 +32,9 @@
 				</div> 
 				<!--------------------------------------------------------- end of Hospital Info ----------------------------------- -->
 				
+				<% @hospital.departments.each do |department| %>
+				        <p><%= department.name %></p>
+				    <% end %>
 				<%= form_tag({:controller=>"hospitals", :action=>"add_department"}, method: :get) do %>
 				  <%= text_field_tag :department_name, params[:department_name] %>
 				  <%= submit_tag 'Search by user id', name: nil %>
@@ -64,7 +67,7 @@
 					  </thead>
 					
 					  <tbody>
-						<% @reviews.each do |review| %>
+						<% @hospital.reviews.each do |review| %>
 				      <tr>
 				        <td><%= review.title %></td>
 				        <td><%= review.rating %></td>

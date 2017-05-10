@@ -1,3 +1,4 @@
 class Department < ApplicationRecord
-  has_and_belongs_to_many :hospitals
+  has_many :hospital_departments
+  has_many :hospitals, through: :hospital_departments 
 end

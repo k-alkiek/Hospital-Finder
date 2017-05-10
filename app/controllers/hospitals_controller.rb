@@ -2,7 +2,8 @@ class HospitalsController < ApplicationController
   
   def show
     @hospital = Hospital.find(params[:id])
-    @reviews = Review.where(:hospital_id => @hospital.id)
+    #@reviews = Review.where(:hospital_id => @hospital.id)
+    
     
     @hospitals = [@hospital]
     @hash = Gmaps4rails.build_markers(@hospitals) do |hospital, marker|
@@ -14,7 +15,8 @@ class HospitalsController < ApplicationController
   def add_department
     @hospital = Hospital.find(params[:id])
     @department = Department.find_by(name: params[:department_name])
-    flash[:notice] = @department.id
+    
+    @hospital.departments << @department
     redirect_back fallback_location: @hospital
   end
   # helper_method :resource_name, :resource, :devise_mapping
