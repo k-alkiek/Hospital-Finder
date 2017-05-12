@@ -5,7 +5,11 @@ class Hospital < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
   has_many :reviews, dependent: :destroy
+  
+    has_many :hospital_departments
+    has_many :departments, through: :hospital_departments
   
   has_attached_file :image,
                     :styles => { :large => "300x300>", :med => "100x100>", :small=>"60x60>" },
