@@ -8,6 +8,7 @@ class User < ApplicationRecord
                     :styles => { :large => "200x200>", :med => "100x100>", :small=>"60x60>" },
                     :path => ':rails_root/public/system/:class/:id/:style/:filename',
                     :url => '/system/:class/:id/:style/:filename',
+                    
                     :default_url => '/system/unavailablePhoto.png'
   
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
