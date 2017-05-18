@@ -9,6 +9,6 @@ class User < ApplicationRecord
                     :path => ':rails_root/public/system/:class/:id/:style/:filename',
                     :url => '/system/:class/:id/:style/:filename',
                     :default_url => '/system/user_:style.png'
-  
+
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 end
