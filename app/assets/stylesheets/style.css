@@ -482,3 +482,33 @@ label:hover:before {
   bottom: -5px;
   margin-bottom: 10px;
 }
+
+.icon {
+  color: #d43f3a;
+  margin:4px;
+  font-size: 150%;
+}
+
+.icon:hover {
+  color: #b20f0b;
+  cursor: pointer;
+}
+
+.us-title {
+  font-family: 'Philosopher', sans-serif;
+  color: #d43f3a;
+  font-size: 120%;
+  line-height: 35px;
+}
+
+.us-info {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 120%;
+  line-height: 35px;
+}
+
+.centerAbout {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
