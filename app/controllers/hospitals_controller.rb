@@ -17,7 +17,7 @@ class HospitalsController < ApplicationController
                         review.rating
                 end
         
-    @average = @ratings.inject(:+).to_f / @ratings.size
+    @average = (@ratings.inject(:+).to_f / @ratings.size).round(2);
 
     @hospitals = [@hospital]
     @hash = Gmaps4rails.build_markers(@hospitals) do |hospital, marker|
