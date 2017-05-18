@@ -1,26 +1,30 @@
-<h2>Log in</h2>
-
+<div class="col-sm-12 mysection">
+  <hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2; margin-top: 0px;" />
+  <div class="col-sm-8 col-lg-offset-2">
+    <h1 class="title" style="text-size="150%">User Log in</h1>
+    
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
+  <div class="field col-sm-12">
+    <%= f.label :email, :class=>"signTitle" %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
+  <div class="field col-sm-12">
+    <%= f.label :password, :class=>"signTitle" %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <div class="field col-sm-12">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="actions col-sm-12">
+    <%= f.submit "Log in", :style=>"font-family: 'Lobster'; border-radius: 5px; height:40px; font-size: 125%;"  %>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+  </div>
+</div>

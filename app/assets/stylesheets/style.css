@@ -151,15 +151,12 @@ body {
 }
 
 .existReview {
-  resize: none;
   width: 100%;
   max-width: 93%;
-  padding: 0px !important; 
 }
 
 .existReviewText {
   width: 100%;
-  resize: none;
 }
 /*-----------------------------end of Hospital page-----------------------*/
 
