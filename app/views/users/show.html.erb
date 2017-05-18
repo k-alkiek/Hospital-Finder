@@ -2,7 +2,8 @@
 				<hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2; margin-top: -20px;" />
 				<h1 class="title"><%= @user.name %></h1>
 					<div class="col-sm-4">
-					    <%= image_tag(@user.image.url(:large)) %>
+					    <%= image_tag(@user.image.url(:small)) %>
+					     <%= image_tag(@user.image.url(:large)) %>
 					    <!--<%= image_tag("person.png", :class => "img-thumbnail", :id => "hospitalImg") %>-->
 					</div>
 					<div class="col-sm-8">
