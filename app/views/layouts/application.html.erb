@@ -22,16 +22,7 @@
 		<link rel="stylesheet" type="text/css" href="/stylesheets/animate.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 		
-		
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
-		<script src="http://code.jquery.com/jquery.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-		<script src="wow.min.js"></script>
-		<script src="jquery.autosize.min.js" type="text/javascript" ></script> <!--add this-->
-		<link rel="stylesheet" type="text/css" href="animate.css">
-		<link rel="stylesheet" type="text/css" href="style.css">
+
 		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
 		
@@ -53,14 +44,6 @@
   	<!--User Login-->
     <p class="navbar-text pull-right">
       
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-    <% end %>
     
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
@@ -70,102 +53,15 @@
     <% end %>
     </p>
     
-    
-    <!--Hospital login-->
-		    <p class="navbar-text pull-right">
-		    hospital login
-		<% if hospital_signed_in? %>
-		  Logged in as <strong><%= current_hospital.email %></strong>.
-		  <%= link_to 'Edit profile', edit_hospital_registration_path, :class => 'navbar-link' %> |
-		  <%= link_to "Logout", destroy_hospital_session_path, method: :delete, :class => 'navbar-link'  %>
-		<% else %>
-		  <%= link_to "Sign up", new_hospital_registration_path, :class => 'navbar-link'  %> |
-		  <%= link_to "Login", new_hospital_session_path, :class => 'navbar-link'  %>
-		<% end %>
-		</p>
+   
 		
 		<!--End of Temporary Login-->
     
     
     
     		<div class="container">
-          
-          <!-- Currently working user login modal -->
-          <div id="loginmodal2" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-          
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Login</h4>
-                </div>
-                <div class="modal-body">
-                	
-                	<!--Embedded ruby that generates the form-->
-                	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-									  <div class="field">
-									    <%= f.label :email %><br />
-									    <%= f.email_field :email, autofocus: true %>
-									  </div>
-									
-									  <div class="field">
-									    <%= f.label :password %><br />
-									    <%= f.password_field :password, autocomplete: "off" %>
-									  </div>
-									
-									  <% if devise_mapping.rememberable? -%>
-									    <div class="field">
-									      <%= f.check_box :remember_me %>
-									      <%= f.label :remember_me %>
-									    </div>
-									  <% end -%>
-									
-									  <div class="actions">
-									    <%= f.submit "Log in" %>
-									  </div>
-									<% end %>
-									
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-          
-            </div>
-          </div>
-          <!-- End of Currently working user login modal -->
-          
-          
-          <!--Currently working user signup modal-->
-            <div id="signupmodal2" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-          
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Login</h4>
-                </div>
-                <div class="modal-body">
-                	
-                 <!--empty for now-->
-									
-									
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-          
-            </div>
-          </div>
-          <!--End of Currently working user signup modal-->
-
-    		  
-    		  
-			<div class="col-sm-10 col-sm-offset-1 mycontainer">
-				<div class="col-sm-12 mysection first">
+					<div class="col-sm-10 col-sm-offset-1 mycontainer">
+						<div class="col-sm-12 mysection first">
 					<div class="col-sm-6">
 						<div id="logo">
 							<%= link_to image_tag("logo.png" ,:width => "250"), root_path, :target => "_blank"%>
@@ -178,198 +74,49 @@
 							<div class="col-sm-6 col-sm-offset-6">
 								<div class="btn-group">
 								  
-								  <% if user_signed_in? %>
-								    <%= link_to 'Edit', edit_user_registration_path, :class => 'btn btn-success', :id => 'loginoutside' %>
-								  <% else %>
-									<a class="btn btn-success" id="loginoutside" data-toggle="modal" href='#loginmodal2'>Login</a>
-									 <% end %>
+								 <!-- <% if user_signed_in? %>-->
+								 <!--   <%= link_to 'Edit', edit_user_registration_path, :class => 'btn btn-success', :id => 'loginoutside' %>-->
+								 <!-- <% else %>-->
+									<!--<a class="btn btn-success" id="loginoutside" data-toggle="modal" href='#loginmodal2'>Login</a>-->
+									<!-- <% end %>-->
+
 									
-									<div class="modal fade" id="loginmod">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-													<h4 class="modal-title">Login.</h4>
-												</div>
-												<div class="modal-body gocenter">
-													<div class="login-form-1">
-														<form id="login-form" class="text-left">
-															<div class="login-form-main-message"></div>  
-															<div class="main-login-form">
-																<div class="login-group">
-																  
-																    <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="jLDiGN9yWwH09BKL+5iS4jh4tzyRWp/L0uN9Z1R9Pic2Con1+O4t9OnpD8YXEV2m/xetHrMn4jcktXzIRpF2Wg==">
-                                     
-                                     
-                                      <div class="field">
-                                        <label for="user_email">Email</label><br>
-                                        <input autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">
-                                      </div>
-                                    
-                                      <div class="field">
-                                        <label for="user_password">Password</label><br>
-                                        <input autocomplete="off" type="password" name="user[password]" id="user_password">
-                                      </div>
-                                    
-                                        <div class="field">
-                                          <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
-                                          <label for="user_remember_me">Remember me</label>
-                                        </div>
-                                    
-                                      <div class="actions">
-                                        <input type="submit" name="commit" value="Log in" data-disable-with="Log in">
-                                      </div>
-                                    </form>
-																  
-																  
-																	<div class="form-group">
-																		
-																		<input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username">
-																	</div>
-																	<div class="form-group">
-																		<label for="lg_password" class="sr-only">Password</label>
-																		<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">
-																	</div>
-																	<div class="form-group login-group-checkbox">
-																		<input type="checkbox" id="lg_remember" name="lg_remember">
-																		<label for="lg_remember">remember</label>
-																	</div>
-																	
-																	
-																</div>
-																<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-															</div>
-															
-															
-															
-															
-															<div class="etc-login-form">
-																<p>forgot your password? <a href="#" id="forgotpass">click here</a></p>
-																<p>new user? <a href="#" id="signupInside">create new account</a></p>
-															</div>
-														</form>
-													</div>
-													<button type="button" id="closeLogin" class="btn btn-default hidden" data-dismiss="modal">Close</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<% if user_signed_in? %>
-									  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-primary', :id => 'registerbtn'  %>
+									<!--<% if user_signed_in? %>-->
+									<!--  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-primary', :id => 'registerbtn'  %>-->
+									<!--<% else %>-->
+									<!--  <a class="btn btn-primary" id="registerbtn" data-toggle="modal" href='#signupmodal2'>Signup</a>-->
+									<!--<% end %>-->
+										
+										<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+										<br>
+										User: 
+								    <% if user_signed_in? %>
+							      Logged in as <strong><%= current_user.email %></strong>.
+							      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+							      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+							    <% else %>
+							      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+							      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+							    <% end %>
+							    <br>
+							    
+							    Hospital
+							    <% if hospital_signed_in? %>
+									  Logged in as <strong><%= current_hospital.email %></strong>.
+									  <%= link_to 'Edit profile', edit_hospital_registration_path, :class => 'navbar-link' %> |
+									  <%= link_to "Logout", destroy_hospital_session_path, method: :delete, :class => 'navbar-link'  %>
 									<% else %>
-									  <a class="btn btn-primary" id="registerbtn" data-toggle="modal" href='#signupmodal2'>Signup</a>
+									  <%= link_to "Sign up", new_hospital_registration_path, :class => 'navbar-link'  %> |
+									  <%= link_to "Login", new_hospital_session_path, :class => 'navbar-link'  %>
 									<% end %>
-									
-									<!--Original Signup modal-->
-									
-									<div class="modal fade" id="signupmod">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-													<h4 class="modal-title">Register</h4>
-												</div>
-												<div class="modal-body gocenter">
-													<div class="login-form-1">
-														<form id="register-form" class="text-left">
-															<div class="login-form-main-message"></div>
-															<div class="main-login-form">
-																<div class="login-group">
-																	<div class="form-group">
-																		<label for="reg_username" class="sr-only">Email address</label>
-																		<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
-																	</div>
-																	<div class="form-group">
-																		<label for="reg_password" class="sr-only">Password</label>
-																		<input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
-																	</div>
-																	<div class="form-group">
-																		<label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-																		<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
-																	</div>
-																	
-																	<div class="form-group">
-																		<label for="reg_email" class="sr-only">Email</label>
-																		<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
-																	</div>
-																	<div class="form-group">
-																		<label for="reg_fullname" class="sr-only">Full Name</label>
-																		<input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-																	</div>
-																	
-																	<div class="form-group login-group-checkbox">
-																		<input type="radio" class="" name="reg_gender" id="male" placeholder="username">
-																		<label for="male">male</label>
-																		
-																		<input type="radio" class="" name="reg_gender" id="female" placeholder="username">
-																		<label for="female">female</label>
-																	</div>
-																	
-																	<div class="form-group login-group-checkbox">
-																		<input type="checkbox" class="" id="reg_agree" name="reg_agree">
-																		<label for="reg_agree">i agree with <a href="#">terms</a></label>
-																	</div>
-																</div>
-																<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-															</div>
-															<div class="etc-login-form">
-																<p>already have an account? <a href="#" id="loginInside">login here</a></p>
-															</div>
-														</form>
-														</div>
-														<button type="button" class="btn btn-default hidden" id="closeregister" data-dismiss="modal">Close</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<!--Enf of Original Signup modal-->
-									
-									
-									
+																
 								</div>
+								
 							</div>
 						</div>
 					</div>
 				</div>
 				<a class="btn btn-success hidden" id="resetpass" data-toggle="modal" href='#resetmod'>Login</a>
-				<div class="modal fade" id="resetmod">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-								<h4 class="modal-title">ResetPassword.</h4>
-							</div>
-							<div class="modal-body gocenter">
-								<div class="login-form-1">
-									<form id="forgot-password-form" class="text-left">
-										<div class="etc-login-form">
-											<p>We will send you a ResetPassword Link.</p>
-										</div>
-										<div class="login-form-main-message"></div>
-										<div class="main-login-form">
-											<div class="login-group">
-												<div class="form-group">
-													<label for="fp_email" class="sr-only">Email address</label>
-													<input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address">
-												</div>
-											</div>
-											<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-										</div>
-										<div class="etc-login-form">
-											<p>already have an account? <a href="#" id="resetologin">login here</a></p>
-											<p>new user? <a href="#" id="resettoregister">create new account</a></p>
-										</div>
-									</form>
-								</div>
-								<button type="button" id="closereset" class="btn btn-default hidden" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				
 
 		  	<%= yield %>
 		  	
@@ -382,10 +129,37 @@
 		</div> 	
 		
 		
+		<!-- Trigger the modal with a button -->
+		
+		
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+		
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">Modal Header</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>Some text in the modal.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		
+		  </div>
+		</div>
+		
     
     <!-- Bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		
   </body>
+  
+  
+  
 </html>
