@@ -38,16 +38,33 @@
 				</div> 
 				<!--------------------------------------------------------- end of Hospital Info ----------------------------------- -->
 				
+				
+						
+				
+				
+				<div class="col-sm-12 mysection">
+					<hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2; margin-top: -20px;" />
+					<span class="title">Departments</span>
+					<ul class="list-inline">
 				<% @hospital.departments.each do |department| %>
-				        <p><%= department.name %>
-				        <%= link_to 'Destroy', :controller=>"hospitals", :action=>"delete_department", :method=>'delete', :department_id => department.id%>
+				    
+				    
+						<li class="label department"><font size="4"><%= department.name %></font></li>
+					
+				        <%= link_to image_tag("remove.png" ,:width => "18"), :controller=>"hospitals", :action=>"delete_department", :method=>'delete', :department_id => department.id%>
 				    <% end %>
-				     
+				     </ul>
 				<%= form_tag({:controller=>"hospitals", :action=>"add_department"}, method: :get) do %>
+				<div class="selectTag">
 					<%= select_tag(:department_name, options_for_select(@departments_selection)) %>
-				  <%= submit_tag 'Add Department', name: nil %>
+				</div>  
+				<%= submit_tag 'Add Department', name: nil, :style=>"font-family: 'Lobster'; border-radius: 5px; height:40px; font-size: 110%;" %>
 				<% end %>
-
+                </div>
+                
+                <hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2; margin-top: -20px;" />
+                
+                
 				<!-- -------------------------------------------------------MAP ---------------------------------------------------->
 				<div class="col-ms-12">
 									<div style='width: 800px;'>
