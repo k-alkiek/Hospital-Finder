@@ -212,22 +212,21 @@
 			<h2 class="title gocenter", style= "font-size: 260%;">Reviews</h2>
 				
 				<% if @ratings.size != 0 %>	
-				
-				<% @reviews.each do |review| %>
-				<ul class="list-inline">
-				    <li><%= image_tag(review.user.image.url(:small)) %></li>
-				    <li><%= review.user.name %></li>
-				    <br>
-					<li><h3 class="form-control title" readonly, class="col-sm-4", style=color: black; background-color:#D2D2D2;><%= review.title %></h3></li>
-					<li><label class="form-control title" readonly, class="col-sm-4"><%= review.rating %> / 5</label></li>
-					<br>
-					<li class="existReview"><p class="form-control existReviewText title" readonly><%= review.content %></p></li>
-				</ul>
-				        <% end %>
-			            <br>
-			            <h5 class="title goleft">Rating</h5>
-					    <p><%= @average %> / 5</p>
-					<% end %>
+				    <% @reviews.each do |review| %>
+        				<ul class="list-inline">
+        				    <li><%= image_tag(review.user.image.url(:small)) %></li>
+        				    <li><%= review.user.name %></li>
+        				    <% if current_user == review.user%>
+        				        <li><%= link_to 'Destroy', hospital_review_path(@hospital, review), :method => :delete %></li>
+        				    <% end %>
+        				    <br>
+        					<li><h3 class="form-control title" readonly, class="col-sm-4", style=color: black; background-color:#D2D2D2;><%= review.title %></h3></li>
+        					<li><label class="form-control title" readonly, class="col-sm-4"><%= review.rating %> / 5</label></li>
+        					<br>
+        					<li class="existReview"><p class="form-control existReviewText title" readonly><%= review.content %></p></li>
+        				</ul>
+				    <% end %>
+				<% end %>
             <br>			
             <br>
             <hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2; margin-top: -20px;" />
