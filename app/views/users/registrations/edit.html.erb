@@ -1,59 +1,101 @@
-<h2>user~ Edit <%= resource_name.to_s.humanize %></h2>
+<div class="col-sm-12 mysection">
+	<hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2; margin-top: 0px;" />
+  <h2>Edit Profile</h2>
+	<div class="col-sm-8 col-lg-offset-2">
+	  
+	  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  		<!-- input -->
+  		<div class="col-sm-12">
+  		  <div class="field">
+          <%= f.label :name , :class => "signTitle"%><br />
+          <%= f.text_field :name, autofocus: true, :class => "form-control inputArea", :placeholder => "Enter Your Name" %>
+        </div>
+  		</div>
+  		<!-- end of input -->
   
-   <div class="field">
-     <%= f.label :image %>:
-    <%= f.file_field :image %>
-  </div>
+  		<!-- input -->
+  		<div class="col-sm-12">
+  		  <div class="field">
+          <%= f.label :email  , :class => "signTitle"%><br />
+           <%= f.text_field :email, autofocus: true, :class => "form-control inputArea", :placeholder => "Enter Your E-mail" %>
+        </div>
+  		</div>
+  		<!-- end of input -->
+      
+  		<!-- input -->
+  		<div class="col-sm-12">
+  		  
+  		  <div class="field">
+          <%= f.label :password  , :class => "signTitle"%> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, :class => "form-control inputArea", :placeholder => "Enter Your Password" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+  		</div>
+  		<!-- end of input -->
   
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+  		<!-- input -->
+  		<div class="col-sm-12">
+      		<div class="field">
+              <%= f.label :password_confirmation , :class => "signTitle"%><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" , :class => "form-control inputArea", :placeholder => "Rewrite Your New Password"%>
+            </div>
+  		</div>
+  		<!-- end of input -->
   
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  		<!-- input -->
+  		<div class="col-sm-12">
+  		     <div class="field">
+            <%= f.label :date_of_birth , :class => "signTitle"%><br />
+            <%= f.date_select :date_of_birth , :id=>"input", :class => "form-control inputArea", :value => "", :required => "required" , :title => "", :style => "margin-bottom: 10px;"%>
+          </div>
+  		</div>
+  		<!-- end of input -->
+      <br>
+  		<!-- input -->
+  		<div class="col-sm-4 col-sm-offset-1">
+  		  <div class="field">
+          <%= f.label :image %>:
+          <%= f.file_field :image , :class => "btn btn-default"%>
+        </div>
+  		</div>
+  		
+  		<hr class="hrSign">
+  		<!-- end of input -->
   
-   <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
+  		<!-- input -->
+  		<div class="col-sm-12">
+          <div class="field">
+            <%= f.label :current_password , :class => "signTitle"%> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.password_field :current_password, autocomplete: "off", :class=>"form-control inputArea", :placeholder => "Enter Your Current Password", :style => "margin-bottom: 10px;" %>
+          </div>
+  		</div>
+  		<!-- end of input -->
   
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  		<div class="col-sm-4 col-sm-offset-4">
+  		  <div class="actions">
+          <%= f.submit "Update" ,  :class => "btn btn-danger"%>
+        </div>
+  		</div>
+  		
+  		<hr class="hrSign">
+  
+		<% end %>
+		  
+			<div class="pull-right">
+  			<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  		</div>
+  		
+  		
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+      <div class="col-sm-4 col-sm-offset-4">
+  		  <%= link_to "Back", :back %>
+  		</div>
+     
+	</div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
