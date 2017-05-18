@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   
   helper_method :resource_name, :resource, :devise_mapping
   
+  def after_sign_in_path_for(resource) 
+    @hospital = current_hospital
+  end
+  
   def resource_name
     :user
   end

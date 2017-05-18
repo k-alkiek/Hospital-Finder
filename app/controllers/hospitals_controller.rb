@@ -43,6 +43,7 @@ class HospitalsController < ApplicationController
     redirect_back fallback_location: @hospital
   end
   
+  
   # helper_method :resource_name, :resource, :devise_mapping
   
   # def resource_name
