@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   get 'static_pages/about'
-
+  
   root 'static_pages#home'
   
   devise_for :hospitals, :controllers => {
@@ -14,9 +14,11 @@ Rails.application.routes.draw do
     registrations: 'user/registrations',
     sessions: 'user/sessions'
   }
-
-   get 'users/:id' => 'users#show'
   
+  
+  
+   #get 'users/:id' => 'users#show'
+  resources :users, only: [:show]
   # get 'hospitals/:id' => 'hospitals#show' 
   
   resources :hospitals do
