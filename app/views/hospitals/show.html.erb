@@ -236,7 +236,7 @@
 				<% @reviews.each do |review| %>
 				<ul class="list-inline">
 				    <li><%= image_tag(review.user.image.url(:small)) %></li>
-				    <li><%= review.user.name %></li>
+				    <li><%= link_to review.user.name, review.user %></li>
 				    <br>
 					<li><h3 class="form-control title" readonly, class="col-sm-4", style=color: black; background-color:#D2D2D2;><%= review.title %></h3></li>
 					<li><label class="form-control title" readonly, class="col-sm-4"><%= review.rating %> / 5</label></li>
