@@ -48,15 +48,20 @@
 				    
 				    
 						<li class="label department"><font size="4"><%= department.name %></font></li>
-					
-				        <%= link_to image_tag("remove.png" ,:width => "18"), :controller=>"hospitals", :action=>"delete_department", :method=>'delete', :department_id => department.id%>
+					    
+					    <% if @hospital == current_hospital %>
+				            <%= link_to image_tag("remove.png" ,:width => "18"), :controller=>"hospitals", :action=>"delete_department", :method=>'delete', :department_id => department.id%>
+				        <% end %>
 				    <% end %>
 				     </ul>
-				<%= form_tag({:controller=>"hospitals", :action=>"add_department"}, method: :get) do %>
-				<div class="selectTag">
-					<%= select_tag(:department_name, options_for_select(@departments_selection)) %>
-				</div>  
-				<%= submit_tag 'Add Department', name: nil, :style=>"font-family: 'Lobster'; border-radius: 5px; height:40px; font-size: 110%;" %>
+				     
+				<% if @hospital == current_hospital %>
+    				<%= form_tag({:controller=>"hospitals", :action=>"add_department"}, method: :get) do %>
+    				<div class="selectTag">
+    					<%= select_tag(:department_name, options_for_select(@departments_selection)) %>
+    				</div>  
+    				<%= submit_tag 'Add Department', name: nil, :style=>"font-family: 'Lobster'; border-radius: 5px; height:40px; font-size: 110%;" %>
+    				<% end %>
 				<% end %>
                 </div>
                 
