@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   # get 'hospitals/:id' => 'hospitals#show' 
   
+  get 'hospitals/autocomplete_hospital_name'
+  
   resources :hospitals do
     get 'delete_department', on: :member
     get 'add_department', on: :member

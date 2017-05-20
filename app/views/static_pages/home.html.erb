@@ -4,17 +4,27 @@
 		
 		<div class="col-sm-12 mysection">
 		<hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2;" />
-		    <div class="row">
-    			<div class="col-sm-8 col-sm-offset-2">
-    				<div class="input-group">
-    					<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-    					<input type="search" id="searcher" placeholder="Search Locations" name="" id="input" class="form-control nolight" value="" required="required" title="">
-      					<span class="input-group-btn">
-    						<button class="btn btn-danger">SEARCH</button>
-    					</span>
-    				</div>
-    			</div>
-			</div>
+		
+		            <div class="container">
+					    <div class="row ">
+                            <%= form_tag(hospitals_path, :method => "get", id: "search-form ") do %>
+                            <!-- text field tag=action,args,identifier,placeholdertext... -->
+                            <div class="col-lg-offset-1 col-sm-6">
+                                <%= text_field_tag :search, params[:search], class: "search-query form-control nolight", placeholder: "Search Hospitals", type: "search", data: {autocomplete: hospitals_autocomplete_hospital_name_path} %>  
+                            </div>
+                            <div class="col-sm-2 ">
+                                <%= submit_tag "Search", :class => 'btn btn-danger'%>
+                            </div>
+                            <%end%>
+                            <script type="text/javascript" charset="utf-8">
+                              $('#search').bind('railsAutocomplete.select', function(event, data){
+                              $('#search-form').submit()
+                              });
+                            </script>
+					    </div>
+					</div>
+					    
+			
 			<br>
 		
 		<!--<div class="col-ms-12">-->

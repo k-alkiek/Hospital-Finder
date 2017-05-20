@@ -7,6 +7,12 @@ class StaticPagesController < ApplicationController
       marker.lng hospital.longitude
       marker.infowindow "<b>#{hospital_path}</b>"
     end
+    
+    if params[:search]
+      @hospitals = Hospital.name_like("%#{params[:search]}%").order('name')
+    else
+    end
+    
   end
 
   def about
