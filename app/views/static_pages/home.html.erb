@@ -4,165 +4,169 @@
 		
 		<div class="col-sm-12 mysection">
 		<hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2;" />
-			<div class="col-sm-8 col-sm-offset-2">
-				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-					<input type="search" id="searcher" placeholder="Search Locations" name="" id="input" class="form-control nolight" value="" required="required" title="">
-  					<span class="input-group-btn">
-						<button class="btn btn-danger">SEARCH</button>
-					</span>
-				</div>
+		    <div class="row">
+    			<div class="col-sm-8 col-sm-offset-2">
+    				<div class="input-group">
+    					<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+    					<input type="search" id="searcher" placeholder="Search Locations" name="" id="input" class="form-control nolight" value="" required="required" title="">
+      					<span class="input-group-btn">
+    						<button class="btn btn-danger">SEARCH</button>
+    					</span>
+    				</div>
+    			</div>
 			</div>
+			<br>
 		
 		<!--<div class="col-ms-12">-->
 		<!--	<div class="mapholder">-->
 		<!--		<%= image_tag("map.png", :class => "map") %>-->
 		<!--	</div>-->
 		<!--</div>-->
+		
 		<div class='mapholder' style='width: 800px;'>
-  		<div id="map" style='width: 880px; height: 400px;'></div>
+  		    <div id="map" style='width: 880px; height: 400px;'></div>
 		</div>
 
 			<script type='text/javascript'>
 				handler = Gmaps.build('Google');
 				
 				var mapStyle = [
-{
-"featureType": "landscape.man_made",
-"elementType": "geometry",
-"stylers": [
-    {
-        "color": "#f7f1df"
-    }
-]
-},
-{
-"featureType": "landscape.natural",
-"elementType": "geometry",
-"stylers": [
-    {
-        "color": "#d0e3b4"
-    }
-]
-},
-{
-"featureType": "landscape.natural.terrain",
-"elementType": "geometry",
-"stylers": [
-    {
-        "visibility": "on"
-    }
-]
-},
-{
-"featureType": "poi",
-"elementType": "labels",
-"stylers": [
-    {
-        "visibility": "on"
-    }
-]
-},
-{
-"featureType": "poi.business",
-"elementType": "all",
-"stylers": [
-    {
-        "visibility": "on"
-    }
-]
-},
-{
-"featureType": "poi.medical",
-"elementType": "geometry",
-"stylers": [
-    {
-        "color": "#fbd3da"
-    }
-]
-},
-{
-"featureType": "poi.park",
-"elementType": "geometry",
-"stylers": [
-    {
-        "color": "#bde6ab"
-    }
-]
-},
-{
-"featureType": "road",
-"elementType": "geometry.stroke",
-"stylers": [
-    {
-        "visibility": "on"
-    }
-]
-},
-{
-"featureType": "road",
-"elementType": "labels",
-"stylers": [
-    {
-        "visibility": "on"
-    }
-]
-},
-{
-"featureType": "road.highway",
-"elementType": "geometry.fill",
-"stylers": [
-    {
-        "color": "#ffe15f"
-    }
-]
-},
-{
-"featureType": "road.highway",
-"elementType": "geometry.stroke",
-"stylers": [
-    {
-        "color": "#efd151"
-    }
-]
-},
-{
-"featureType": "road.arterial",
-"elementType": "geometry.fill",
-"stylers": [
-    {
-        "color": "#ffffff"
-    }
-]
-},
-{
-"featureType": "road.local",
-"elementType": "geometry.fill",
-"stylers": [
-    {
-        "color": "black"
-    }
-]
-},
-{
-"featureType": "transit.station.airport",
-"elementType": "geometry.fill",
-"stylers": [
-    {
-        "color": "#cfb2db"
-    }
-]
-},
-{
-"featureType": "water",
-"elementType": "geometry",
-"stylers": [
-    {
-        "color": "#a2daf2"
-    }
-]
-}
-];
+                    {
+                    "featureType": "landscape.man_made",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#f7f1df"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#d0e3b4"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "landscape.natural.terrain",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "poi",
+                    "elementType": "labels",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "poi.business",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "poi.medical",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#fbd3da"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "poi.park",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#bde6ab"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "road",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "road",
+                    "elementType": "labels",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#ffe15f"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "color": "#efd151"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#ffffff"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "road.local",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "black"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "transit.station.airport",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#cfb2db"
+                        }
+                    ]
+                    },
+                    {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#a2daf2"
+                        }
+                    ]
+                    }
+                ];
 				
 				handler.buildMap({ provider: {zoom:      15, styles: mapStyle}, internal: {id: 'map'}}, function() {
 				  markers = handler.addMarkers(<%=raw @hash.to_json %>);
@@ -178,9 +182,10 @@
   						};
 				});
 		</script>
+		
         <br>
         <br>
-        <div class="centerAbout">
-		<%= link_to image_tag("AboutUs.png" ,:width => "180"), '/static_pages/about', :target => "_blank", :style=>"text-align: center"%>
+        <div class="text-center">
+		    <%= link_to 'About us', '/static_pages/about', :target => "_blank", :style=>"text-align: center", :class => "btn btn-lg btn-danger"%>
 		</div>
 		</div>

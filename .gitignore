@@ -17,5 +17,7 @@
 !/log/.keep
 !/tmp/.keep
 
+/public/system/users
+/public/system/hospitals
 # Ignore Byebug command history file.
 .byebug_history

@@ -13,7 +13,8 @@
     
     
     	<!-- Bootstrap CSS -->
-				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 		<script src="http://code.jquery.com/jquery.js"></script>
@@ -27,26 +28,19 @@
 		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
 		
-		<script src="jquery.nicescroll.min" type="text/javascript"></script>
-		<script>
-			$("html").niceScroll({
-			cursorcolor: "#c9302c",
-			cursorborder: "none",
-			background: '#E5E9E7',
-			cursorwidth: "7px",
-			cursorfixedheight:190,
-			railpadding:"top:30,right:0,left:0,bottom:0",
-		});
-		</script>
-		<!--<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">-->
-		<!--<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">-->
-
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<!--<script src="jquery.nicescroll.min" type="text/javascript"></script>-->
+		
+		<!--<script>-->
+		<!--	$("html").niceScroll({-->
+		<!--	cursorcolor: "#c9302c",-->
+		<!--	cursorborder: "none",-->
+		<!--	background: '#E5E9E7',-->
+		<!--	cursorwidth: "7px",-->
+		<!--	cursorfixedheight:190,-->
+		<!--	railpadding:"top:30,right:0,left:0,bottom:0",-->
+		<!--});-->
+		<!--</script>-->
+		
   </head>
 
   <body>
@@ -84,42 +78,58 @@
 						<div class="row">
 							<div class="col-sm-6 col-sm-offset-6">
 								<div class="btn-group">
-								  
-								 <!-- <% if user_signed_in? %>-->
-								 <!--   <%= link_to 'Edit', edit_user_registration_path, :class => 'btn btn-success', :id => 'loginoutside' %>-->
-								 <!-- <% else %>-->
-									<!--<a class="btn btn-success" id="loginoutside" data-toggle="modal" href='#loginmodal2'>Login</a>-->
-									<!-- <% end %>-->
-
-									
-									<!--<% if user_signed_in? %>-->
-									<!--  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-primary', :id => 'registerbtn'  %>-->
-									<!--<% else %>-->
-									<!--  <a class="btn btn-primary" id="registerbtn" data-toggle="modal" href='#signupmodal2'>Signup</a>-->
-									<!--<% end %>-->
 										
-										<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-										<br>
-										User: 
-								    <% if user_signed_in? %>
-							      Logged in as <strong><%= current_user.email %></strong>.
-							      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-							      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-							    <% else %>
-							      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-							      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-							    <% end %>
-							    <br>
+										<!--modal triggers-->
+										<% if user_signed_in? %>
+
+											<div class="row">
+												<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link btn btn-info' %>
+												<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link btn btn-danger'  %>
+											</div>
+											<br>
+											<div class="row">
+												<%= image_tag(current_user.image.url(:small)) %>
+												<strong><%= link_to current_user.name, current_user %> <%=  %></strong>
+											</div>
+											
+											
+										<% elsif hospital_signed_in? %>
+											<div class="row">
+												Logged in as: <strong><%= link_to current_hospital.name, current_hospital %> <%=  %></strong>
+											</div>
+											<br>
+											<div class="row">
+												<%= link_to 'Edit profile', edit_hospital_registration_path, :class => 'navbar-link btn btn-info' %>
+												<%= link_to "Logout", destroy_hospital_session_path, method: :delete, :class => 'navbar-link btn btn-danger'  %>
+											</div>
+										<% else %>
+											<div class="row">
+												<button type="button" class="btn btn-info" data-toggle="modal" data-target="#loginModal">Login</button>
+												<button type="button" class="btn btn-info" data-toggle="modal" data-target="#signupModal">Sign up</button>
+											</div>
+										<% end %>
+										
+									<!--	<br>-->
+									<!--	User: -->
+								 <!--   <% if user_signed_in? %>-->
+							  <!--    Logged in as <strong><%= current_user.email %></strong>.-->
+							  <!--    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |-->
+							  <!--    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>-->
+							  <!--  <% else %>-->
+							  <!--    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |-->
+							  <!--    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>-->
+							  <!--  <% end %>-->
+							  <!--  <br>-->
 							    
-							    Hospital
-							    <% if hospital_signed_in? %>
-									  Logged in as <strong><%= current_hospital.email %></strong>.
-									  <%= link_to 'Edit profile', edit_hospital_registration_path, :class => 'navbar-link' %> |
-									  <%= link_to "Logout", destroy_hospital_session_path, method: :delete, :class => 'navbar-link'  %>
-									<% else %>
-									  <%= link_to "Sign up", new_hospital_registration_path, :class => 'navbar-link'  %> |
-									  <%= link_to "Login", new_hospital_session_path, :class => 'navbar-link'  %>
-									<% end %>
+							  <!--  Hospital-->
+							  <!--  <% if hospital_signed_in? %>-->
+									<!--  Logged in as <strong><%= current_hospital.email %></strong>.-->
+									<!--  <%= link_to 'Edit profile', edit_hospital_registration_path, :class => 'navbar-link' %> |-->
+									<!--  <%= link_to "Logout", destroy_hospital_session_path, method: :delete, :class => 'navbar-link'  %>-->
+									<!--<% else %>-->
+									<!--  <%= link_to "Sign up", new_hospital_registration_path, :class => 'navbar-link'  %> |-->
+									<!--  <%= link_to "Login", new_hospital_session_path, :class => 'navbar-link'  %>-->
+									<!--<% end %>-->
 																
 								</div>
 								
@@ -139,30 +149,56 @@
 			</div>
 		</div> 	
 		
+
 		
-		<!-- Trigger the modal with a button -->
 		
-		
-		<!-- Modal -->
-		<div id="myModal" class="modal fade" role="dialog">
+		<!--Login Modal -->
+		<div id="loginModal" class="modal fade" role="dialog">
 		  <div class="modal-dialog">
 		
 		    <!-- Modal content-->
 		    <div class="modal-content">
+		    	<div class="modal-body">
+		    		<h3>Login</h3>
+		    	</div>	
+		    	<hr>
 		      <div class="modal-body">
-		        <%= link_to "Login", new_user_session_path, :class => 'navbar-link btn btn-lg btn-primary'  %>
-		        <%= link_to "Login", new_hospital_session_path, :class => 'navbar-link btn btn-lg btn-primary'  %>
+		      	<div class="container-fluid">
+							<div class="row">
+		        		<%= link_to "User", new_user_session_path, :class => 'navbar-link btn btn-lg btn-huge btn-primary col-sm-6'  %>
+		        		<%= link_to "Hospital", new_hospital_session_path, :class => 'navbar-link btn btn-lg btn-huge btn-primary col-sm-6'  %>
+		      		</div>
+		      	</div>
 		      </div>
 		    </div>
 		
 		  </div>
 		</div>
 		
-		<%=link_to 'About', '/static_pages/about' %>
-    
-    <!-- Bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<!--Signup Modal -->
+		<div id="signupModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+		
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		    	<div class="modal-body">
+		    		<h3>Sign Up</h3>
+		    	</div>	
+		    	<hr>
+		      <div class="modal-body">
+		      	<div class="container-fluid">
+							<div class="row">
+		        		<%= link_to "User", new_user_registration_path, :class => 'navbar-link btn btn-lg btn-huge btn-primary col-sm-6'  %>
+		        		<%= link_to "Hospital", new_hospital_registration_path, :class => 'navbar-link btn btn-lg btn-huge btn-primary col-sm-6'  %>
+		      		</div>
+		      	</div>
+		      </div>
+		    </div>
+		
+		  </div>
+		</div>
+		
+		<%=button_to 'About', '/static_pages/about' %>
 		
   </body>
   
