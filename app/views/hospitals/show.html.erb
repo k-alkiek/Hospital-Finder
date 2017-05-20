@@ -252,7 +252,7 @@
 				        <li><%= link_to image_tag("remove.png" ,:width => "18") ,hospital_review_path(@hospital, review), data: {:confirm => 'Are you sure?'}, :method => :delete %></li>
 				    <% end %>
 					</ul>
-					<textarea class="form-control existReviewText title" readonly ><%= review.content %></textarea>
+					<textarea class="form-control existReviewText " readonly ><%= review.content %></textarea>
 					
 					<script src="autosize.min.js" type="text/javascript"></script>
 					<script>autosize($('textarea'));</script>
