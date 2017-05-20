@@ -86,15 +86,17 @@
   
 		<% end %>
 		  
-			<div class="pull-right">
-  			<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+			<div class="row">
+			<div class="col-sm-4 pull-right">
+  			<%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class=>"btn btn-danger" %>
   		</div>
   		
   		
 
-      <div class="col-sm-4 col-sm-offset-4">
-  		  <%= link_to "Back", :back %>
+      <div class="col-sm-4 ">
+  		  <%= link_to "Back", :back, :class=>"btn btn-info " %>
   		</div>
+     </div>
      
 	</div>
 
