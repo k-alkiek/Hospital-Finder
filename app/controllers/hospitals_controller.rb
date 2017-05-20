@@ -1,6 +1,20 @@
 class HospitalsController < ApplicationController
-
+  autocomplete :hospital, :name
+  
+  def index
+    @hospital = Hospital.find_by(name: params[:search])
+    if @hospital
+      redirect_to @hospital
+      # redirect_back fallback_location: @hospital
+    else 
+       redirect_to root_path, :flash => {:alert => "Hospital not found"}
+    end
+    
+    # redirect_back fallback_location: root_path
+  end
+  
   def show
+    
     @hospital = Hospital.find(params[:id])
     
     @reviews = Review.where(:hospital_id => @hospital.id)

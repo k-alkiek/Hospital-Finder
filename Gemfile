@@ -39,6 +39,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'geocoder'
 gem 'gmaps4rails'
 
+gem 'rails4-autocomplete'
+gem 'jquery-ui-rails'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
