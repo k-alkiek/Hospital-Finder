@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="autosize.min.js" type="text/javascript"></script>
 		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 		<script src="wow.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/animate.css">
@@ -26,7 +27,17 @@
 		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
 		
-		
+		<script src="jquery.nicescroll.min" type="text/javascript"></script>
+		<script>
+			$("html").niceScroll({
+			cursorcolor: "#c9302c",
+			cursorborder: "none",
+			background: '#E5E9E7',
+			cursorwidth: "7px",
+			cursorfixedheight:190,
+			railpadding:"top:30,right:0,left:0,bottom:0",
+		});
+		</script>
 		<!--<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">-->
 		<!--<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">-->
 
@@ -147,6 +158,7 @@
 		  </div>
 		</div>
 		
+		<%=link_to 'About', '/static_pages/about' %>
     
     <!-- Bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

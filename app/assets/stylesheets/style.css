@@ -151,15 +151,12 @@ body {
 }
 
 .existReview {
-  resize: none;
   width: 100%;
   max-width: 93%;
-  padding: 0px !important; 
 }
 
 .existReviewText {
   width: 100%;
-  resize: none;
 }
 /*-----------------------------end of Hospital page-----------------------*/
 
@@ -465,4 +462,53 @@ label:hover:before {
   color: #d43f3a;
   font-size: 110%;
   background: #ffffff;
+}
+
+.signTitle {
+  font-family: 'Philosopher', sans-serif;
+  color: #d43f3a;
+  font-size: 120%;
+  line-height: 50px;
+  position: relative;
+  top: 10px;
+}
+
+.hrSign {
+  width: 100%;
+  color: black; 
+  height: 1px; 
+  background-color:#D2D2D2; 
+  position: relative;
+  bottom: -5px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  color: #d43f3a;
+  margin:4px;
+  font-size: 150%;
+}
+
+.icon:hover {
+  color: #b20f0b;
+  cursor: pointer;
+}
+
+.us-title {
+  font-family: 'Philosopher', sans-serif;
+  color: #d43f3a;
+  font-size: 120%;
+  line-height: 35px;
+}
+
+.us-info {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 120%;
+  line-height: 35px;
+}
+
+.centerAbout {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }

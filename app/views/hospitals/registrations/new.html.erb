@@ -1,56 +1,59 @@
-<h2>Sign up</h2>
+<div class="col-sm-12 mysection mycontainer">
+	<hr style="width: 100%; color: black; height: 1px; background-color:#D2D2D2; margin-top: 0px;" />
 
-
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    Add Your <%= f.label :image %>:
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number, autofocus: true %>
-  </div>
-  
-   <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: true %>
-  </div>
-  
-   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-
-<%= render "hospitals/shared/links" %>
+    <div class="col-sm-8 col-lg-offset-2">
+    <h1 class="title" style="text-size="150%">Hospital Sign up</h1>
+    
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+    
+      <div class="field col-sm-12">
+        <%= f.label :image, :class=>"signTitle" %>:
+        <%= f.file_field :image, :class=>"btn btn-default" %>
+      </div>
+    
+      <div class="field col-sm-12">
+        <%= f.label :name ,:class=>"signTitle"%><br />
+        <%= f.text_field :name, autofocus: true, :placeholder=>"Enter hospital name", :class=>"form-control inputArea" %>
+      </div>
+      
+      <div class="field col-sm-12">
+        <%= f.label :email ,:class=>"signTitle"%><br />
+        <%= f.email_field :email, autofocus: true, :placeholder=>"Enter hospital e-mail", :class=>"form-control inputArea" %>
+      </div>
+    
+      <div class="field col-sm-12">
+        <%= f.label :password ,:class=>"signTitle"%>
+        <% if @minimum_password_length %>
+        <em class="signTitle">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", :placeholder=>"Enter your password", :class=>"form-control inputArea" %>
+      </div>
+    
+      <div class="field col-sm-12">
+        <%= f.label :password_confirmation ,:class=>"signTitle"%><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder=>"Repeat your password", :class=>"form-control inputArea" %>
+      </div>
+      <div class="field col-sm-12">
+        <%= f.label :phone_number ,:class=>"signTitle"%><br />
+        <%= f.text_field :phone_number, autofocus: true, :placeholder=>"Enter phone number", :class=>"form-control inputArea" %>
+      </div>
+      
+       <div class="field col-sm-12">
+        <%= f.label :address ,:class=>"signTitle"%><br />
+        <%= f.text_field :address, autofocus: true, :placeholder=>"Enter hospital address", :size=>"75", :class=>"form-control inputArea" %>
+      </div>
+      
+       <div class="field col-sm-12">
+        <%= f.label :description ,:class=>"signTitle"%><br />
+        <%= f.text_area :description, autofocus: true, :placeholder=>"Write short description", :size=>"75", :class=>"form-control inputArea" %>
+      </div>
+    
+    <br>
+    <br>
+      <div class="actions col-sm-6 col-sm-offset-4">
+        <%= f.submit "Sign up" ,:style=>"font-family: 'Lobster'; border-radius: 5px; height:40px; font-size: 125%;" %>
+      </div>
+    <% end %>
+    </div>
+</div>
